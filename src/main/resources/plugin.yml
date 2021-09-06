@@ -1,0 +1,7 @@
+name: GiveKettenicColor
+version: '${project.version}'
+main: me.kettenic.giveketteniccolor.GiveKettenicColor
+api-version: 1.17
+authors: [ kettenic ]
+description: Give kettenic a color.
+website: kartoncraft.net
