@@ -22,10 +22,15 @@ public final class GiveKettenicColor extends JavaPlugin implements Listener {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
         Scoreboard board = Bukkit.getScoreboardManager().getMainScoreboard();
-        Team team = board.getTeam("kettenic");
-        if (team == null) {
+        Team team1 = board.getTeam("kettenic");
+        Team team2 = board.getTeam("losers");
+        if (team1 == null) {
             Bukkit.getScoreboardManager().getMainScoreboard().registerNewTeam("kettenic").setColor(ChatColor.DARK_AQUA);
+            }
+        if (team2 == null) {
+            Bukkit.getScoreboardManager().getMainScoreboard().registerNewTeam("losers").setColor(ChatColor.YELLOW);
         }
+
     }
 
     @EventHandler
@@ -39,6 +44,9 @@ public final class GiveKettenicColor extends JavaPlugin implements Listener {
             String uuid = "283041bc-5bab-4398-bbf9-4fce9bf490e1";
             if (p.getUniqueId().equals(UUID.fromString(uuid))) {
                 team = "kettenic";
+            }
+            else {
+                team = "losers";
             }
             board.getTeam("" + team).addEntry(p.getPlayer().getName());
     }
