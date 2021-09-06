@@ -26,8 +26,6 @@ public final class GiveKettenicColor extends JavaPlugin implements Listener {
         if (team == null) {
             Bukkit.getScoreboardManager().getMainScoreboard().registerNewTeam("kettenic").setColor(ChatColor.DARK_AQUA);
         }
-        //Bukkit.getPluginManager();
-        //pluginManager.registerEvents(new PlayerJoinEvent());
     }
 
     @EventHandler
@@ -36,15 +34,12 @@ public final class GiveKettenicColor extends JavaPlugin implements Listener {
     }
 
     private void setPrefix (Player p) {
-            //String player = p.getPlayer().getName();
             Scoreboard board = Bukkit.getScoreboardManager().getMainScoreboard();
             String team = "";
             String uuid = "283041bc-5bab-4398-bbf9-4fce9bf490e1";
             if (p.getUniqueId().equals(UUID.fromString(uuid))) {
                 team = "kettenic";
-                System.out.println("UUID WORKS");
             }
-            System.out.println("JOIN WORKS");
             board.getTeam("" + team).addEntry(p.getPlayer().getName());
     }
 
